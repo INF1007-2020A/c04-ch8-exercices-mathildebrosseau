@@ -42,13 +42,13 @@ def delete_recipe(recipes):
         print(f"La recette {name} est supprimée. \n")
     else:
         print("La recette n'existe pas. \n")
+    return recipes
 
 def exercice4(file_path = "./recipes.json"):
     if path.exists(file_path):
         recipes = json.load(open(file_path, 'r')) # mode lecture d'un fichier binaire
     else:
         recipes = dict()
-    return recipes
 
     while True:
         choice = input("Choisissez une option: \n a : ajouter une recette \n b : modifier une recette \n c : supprimer une recette \n d : afficher une recette \n e : quitter le programme \n").strip()
@@ -64,7 +64,7 @@ def exercice4(file_path = "./recipes.json"):
             break
         else:
             print("Choix invalide, réessayez svp.")
-    json.dump(recipes, (file_path, 'w'))
+    json.dump(recipes, open(file_path, 'w'))
 
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
